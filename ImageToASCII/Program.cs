@@ -5,7 +5,7 @@ class Program
     public static void Main(string[] args)
     {
         string pathASCII = @"C:\Users\Danil\source\repos\ImageToASCII\ImageToASCII\ASCII.txt";
-        string pathImage = "C:\\Users\\Danil\\source\\repos\\ImageToASCII\\ImageToASCII\\image3.png";
+        string pathImage = "C:\\Users\\Danil\\source\\repos\\ImageToASCII\\ImageToASCII\\image.png";
 
         FileInfo fi = new FileInfo(pathASCII); // txt file
         FileInfo imageFI = new FileInfo(pathImage); // png file
