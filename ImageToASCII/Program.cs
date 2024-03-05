@@ -1,12 +1,10 @@
-﻿using System;
-using System.IO;
-using BigGustave;
+﻿using BigGustave;
 
 class Program
 {
     public static void Main(string[] args)
     {
-        string pathASCII = @"C:\Users\Danil\Desktop\ASCII.txt";
+        string pathASCII = @"C:\Users\Danil\source\repos\ImageToASCII\ImageToASCII\ASCII.txt";
         string pathImage = "C:\\Users\\Danil\\source\\repos\\ImageToASCII\\ImageToASCII\\image3.png";
 
         FileInfo fi = new FileInfo(pathASCII); // txt file
@@ -21,7 +19,7 @@ class Program
         Pixel pixel;
 
         int brightness = 0;
-        char? symbol = null ;
+        char? symbol = null;
 
         Console.WriteLine(image.Header.Height);
         Console.WriteLine(image.Header.Width);
@@ -42,7 +40,7 @@ class Program
                 else if (brightness >= 100) symbol = '%';
                 else if (brightness >= 70) symbol = '#';
                 else if (brightness >= 40) symbol = '▓';
-                else if (brightness >= 20) symbol = '█'; 
+                else if (brightness >= 20) symbol = '█';
                 else symbol = '█';
 
                 //if (brightness >= 200) symbol = '.';
