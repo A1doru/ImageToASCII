@@ -4,6 +4,9 @@ class Program
 {
     public static void Main(string[] args)
     {
+        Pixel pixel;
+        char symbol;
+
         string pathASCII = @"C:\Users\Danil\source\repos\ImageToASCII\ImageToASCII\ASCII.txt";
         string pathImage = "C:\\Users\\Danil\\source\\repos\\ImageToASCII\\ImageToASCII\\image.png";
 
@@ -16,10 +19,7 @@ class Program
         StreamWriter symbolWriter = new StreamWriter(txtFS);
         Png image = Png.Open(imageFS);
 
-        Pixel pixel;
-
         int brightness = 0;
-        char? symbol = null;
 
         Console.WriteLine(image.Header.Height);
         Console.WriteLine(image.Header.Width);
@@ -30,10 +30,7 @@ class Program
             {
                 pixel = image.GetPixel(j, i);
                 brightness = (int)(0.299 * pixel.R + 0.587 * pixel.G + 0.114 * pixel.B);
-                if (brightness >= 230)
-                {
-                    symbol = '.';
-                }
+                if (brightness >= 230) symbol = '.';
                 else if (brightness >= 200) symbol = '^';
                 else if (brightness >= 170) symbol = '/';
                 else if (brightness >= 140) symbol = ':';
@@ -42,18 +39,10 @@ class Program
                 else if (brightness >= 40) symbol = '▓';
                 else if (brightness >= 20) symbol = '█';
                 else symbol = '█';
-
-                //if (brightness >= 200) symbol = '.';
-                //else if (brightness >= 160) symbol = ':';
-                //else if (brightness >= 130) symbol = '%';
-                //else symbol = '#';
                 symbolWriter.Write(symbol);
             }
             symbolWriter.WriteLine();
         }
-
-
-
 
         symbolWriter.Close();
         txtFS.Close();
